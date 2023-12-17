@@ -12,6 +12,7 @@ function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.INCREMENT:
       return {
+        ...state
         count: Number(state.count) + Number(state.addNum),
         addNum: state.addNum,
         subNum: state.subNum
@@ -20,10 +21,29 @@ function reducer(state, action) {
    
     case ACTIONS.SET_ADD_NUM:
       return {
+        ...state
         count: state.count,
         subNum: state.subNum,
         addNum: action.payload
       };
+
+    case ACTIONS.DECREMENT:
+      return {
+        ...state
+        count: Number(state.count) - Number(state.addNum),
+        addNum: state.addNum,
+        subNum: state.subNum
+      };
+ 
+   
+    case ACTIONS.SET_SUB_NUM:
+      return {
+        ...state
+        count: state.count,
+        subNum: state.subNum,
+        addNum: action.payload
+      };
+
     default:
       return {
         count: 10,
