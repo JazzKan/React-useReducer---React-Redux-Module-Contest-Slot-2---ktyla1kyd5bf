@@ -32,10 +32,15 @@ function reducer(state, action) {
       };
   }
 }
+const intialState = {
+  count:0;
+  addNum:1;
+  subNum:1;
+}
 
 const App = () => {
- 
-
+  const[state, dispatch]=useReducer(reducer, initialState);
+  
   function onIncrement() {
     dispatch({ type: ACTIONS.INCREMENT });
   }
@@ -64,6 +69,6 @@ const App = () => {
     </div>
   )
 }
-
-
 export default App;
+
+
